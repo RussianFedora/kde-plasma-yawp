@@ -12,6 +12,7 @@ BuildRequires:  kde-workspace-devel
 BuildRequires:  qt4-devel
 BuildRequires:  cmake
 BuildRequires:  desktop-file-utils
+BuildRequires:  gettext
 
 
 %description
