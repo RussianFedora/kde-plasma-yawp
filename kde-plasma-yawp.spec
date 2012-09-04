@@ -11,10 +11,12 @@ BuildRequires:  kde-filesystem
 BuildRequires:  kde-workspace-devel
 BuildRequires:  qt4-devel
 BuildRequires:  cmake
+BuildRequires:  desktop-file-utils
 
 
 %description
-There is nothing wrong with the ones that exist, I just wanted something more colorful.
+There is nothing wrong with the ones that exist, I just wanted something
+more colorful.
 
 %prep
 %setup -q -n yawp-%{version}
@@ -28,6 +30,10 @@ make %{?_smp_mflags}
 %install
 make install DESTDIR=$RPM_BUILD_ROOT
 %find_lang plasma_applet_yawp
+desktop-file-validate %{buildroot}%{_kde4_datadir}/kde4/services/ion-accuweather.desktop
+desktop-file-validate %{buildroot}%{_kde4_datadir}/kde4/services/ion-google.desktop
+desktop-file-validate %{buildroot}%{_kde4_datadir}/kde4/services/ion-wunderground.desktop
+desktop-file-validate %{buildroot}%{_kde4_datadir}/kde4/services/plasma-applet-yawp.desktop
 
 %post -p /sbin/ldconfig
 
